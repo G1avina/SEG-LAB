@@ -8,9 +8,9 @@
  * them into the other type. It is not an optimal design, it is used
  * only to illustrate some design issues.
  *
- * @author Fran&ccedil;ois B&eacute;langer
- * @author Dr Timothy C. Lethbridge
- * @version July 2000
+ * @author Mamadou Diallo
+ * @author 
+ * @version October 2021
  */
 public class PointCP
 {
