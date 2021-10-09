@@ -42,7 +42,7 @@ public class PointCP
   private double theta;
 	
   
-  //Constructors ******************************************************
+  //Constructors *****************************************************
 
   /**
    * Constructs a coordinate object, with a type identifier.

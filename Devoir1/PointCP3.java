@@ -31,7 +31,7 @@ public class PointCP3
   private double y;
 	
   
-  //Constructors ******************************************************
+  //Constructors ****************************************************
 
   /**
    * Constructs a coordinate object, with a type identifier.
