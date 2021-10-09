@@ -15,12 +15,6 @@ public class PointCP3
   //Instance variables ************************************************
 
   /**
-   * Contains C(artesian) or P(olar) to identify the type of
-   * coordinates that are being dealt with.
-   */
-  private char typeCoord;
-  
-  /**
    * Contains the current value of X of the cartesian format.
    */
   private double x;
@@ -36,13 +30,10 @@ public class PointCP3
   /**
    * Constructs a coordinate object, with a type identifier.
    */
-  public PointCP3(char type, double xOrRho, double yOrTheta)
+  public PointCP3(double x, double y)
   {
-    if(type != 'C' && type != 'P')
-      throw new IllegalArgumentException();
-    this.xOrRho = x;
-    this.yOrTheta = y;
-    typeCoord = type;
+    this.x = x;
+    this.y = y;
   }
 	
   
