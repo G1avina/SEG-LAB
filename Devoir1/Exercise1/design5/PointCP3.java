@@ -6,35 +6,19 @@
  * This class contains instances of coordinates in either
  * cartesian format.  
  *
- * @author Mamadou Diallo;
+ * @author Simon Desjardins;
  * @author 
  * @version October 2021
  */
-public class PointCP3
+public class PointCP3 extends PointCP5
 {
-  //Instance variables ************************************************
 
-  
-  /**
-   * Contains the current value of RHO of the Polar format.
-   */
-  private double rho;
-  
-  /**
-   * Contains the current value of Theta of the Polar format.
-   */
-  private double theta;
-	
-  
-  //Constructors ****************************************************
+  //Constructor de la classe de PointCP3
 
-  /**
-   * Constructs a coordinate object, with a type identifier.
-   */
-  public PointCP2(double rho, double theta)
+  public PointCP3(double xOrRho, double yOrTheta)
   {
-    this.rho = rho;
-    this.theta = theta;
+    super(xOrRho, yOrTheta);
+    
   }
 	
   
@@ -43,23 +27,23 @@ public class PointCP3
  
   public double getX()
   {
-      return Math.cos(Math.toRadians(yOrTheta)) * xOrRho);
+      return xOrRho;
   }
   
   public double getY()
   {
-      return Math.sin(Math.toRadians(yOrTheta)) * xOrRho);
+      return yOrTheta;
   }
   
   public double getRho()
   {
    
-      return rho;
+      return (Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2)));
   }
   
   public double getTheta()
   {
-      return theta;
+      return Math.toDegrees(Math.atan2(yOrTheta, xOrRho));
   }
   
 
@@ -71,7 +55,7 @@ public class PointCP3
    * @param pointB The second point.
    * @return The distance between the two points.
    */
-  public double getDistance(PointCP2 pointB)
+  public double getDistance(PointCP5 pointB)
   {
     // Obtain differences in X and Y, sign is not important as these values
     // will be squared later.
@@ -89,13 +73,13 @@ public class PointCP3
    * @param rotation The number of degrees to rotate the point.
    * @return The rotated image of the original point.
    */
-  public PointCP2 rotatePoint(double rotation)
+  public PointCP3 rotatePoint(double rotation)
   {
     double radRotation = Math.toRadians(rotation);
     double X = getX();
     double Y = getY();
         
-    return new PointCP2('C',
+    return new PointCP3('C',
       (Math.cos(radRotation) * X) - (Math.sin(radRotation) * Y),
       (Math.sin(radRotation) * X) + (Math.cos(radRotation) * Y));
   }
@@ -105,9 +89,9 @@ public class PointCP3
    *
    * @return A String containing information about the coordinates.
    */
-  public String toString()
+  public String toString() //vice versa du design 2 
   {
-    return "Stored as Polar  (" + getRho() + "," + getTheta() + ")"
-       "with corresponding Cartesian (" + getX() + "," + getY() + ")" + "\n";
+    return "Stored as Cartesian  (" + getX() + "," + getY() + ")" +
+       " with corresponding Polar (" + getRho() + "," + getTheta() + ")" + "\n";
   }
 }
