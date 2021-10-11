@@ -9,32 +9,19 @@ import java.io.*;
  * This class prompts the user for a set of coordinates, and then 
  * converts them from polar to cartesian or vice-versa.
  *
- * @author Fran&ccedil;ois B&eacute;langer
- * @author Dr Timothy C. Lethbridge
- * @author Paul Holden
- * @version July 2000
+ * @author Simon Desjardins
+
  */
-public class PointCPTest
+public class PointCPTest4
 {
   //Class methods *****************************************************
 
   /**
-   * This method is responsible for the creation of the PointCP
-   * object.  This can be done in two ways; the first, by using the
-   * command line and running the program using <code> java 
-   * PointCPTest &lt;coordtype (c/p)&gt; &lt;X/RHO&gt; &lt;Y/THETA&gt;
-   * </code> and the second by getting the program to prompt the user.
-   * If the user does not enter a valid sequence at the command line,
-   * the program will prompte him or her.
-   *
-   * @param args[0] The coordinate type.  P for polar and C for
-   *                cartesian.
-   * @param args[1] The value of X or RHO.
-   * @param args[2] The value of Y or THETA.
+
    */
   public static void main(String[] args)
   {
-    PointCP2 point;
+    PointCP4 point;
 
     System.out.println("Cartesian-Polar Coordinates Conversion Program");
 
@@ -43,7 +30,7 @@ public class PointCPTest
     // If he did not, prompt the user for them.
     try
     {
-      point = new PointCP2(args[0].toUpperCase().charAt(0), 
+      point = new PointCP4(args[0].toUpperCase().charAt(0), 
         Double.valueOf(args[1]).doubleValue(), 
         Double.valueOf(args[2]).doubleValue());
     }
@@ -64,24 +51,16 @@ public class PointCPTest
         return;
       }
     }
-    System.out.println("\nYou entered:\n" + "["+point.getX()+","+point.getY()+"]");
-    point.convertStorageToCartesian();
-    System.out.println("\nAfter asking to store as Cartesian:\n" + point);
-    point.convertStorageToPolar();
-    System.out.println("\nAfter asking to store as Polar:\n" + point);
+    
+    String out = new String();
+    out = point.toString();
+    System.out.print(out);
+
+    
   }
 
-  /**
-   * This method obtains input from the user and verifies that
-   * it is valid.  When the input is valid, it returns a PointCP
-   * object.
-   *
-   * @return A PointCP constructed using information obtained 
-   *         from the user.
-   * @throws IOException If there is an error getting input from
-   *         the user.
-   */
-  private static PointCP2 getInput() throws IOException
+  
+  private static PointCP4 getInput() throws IOException
   {
     byte[] buffer = new byte[1024];  //Buffer to hold byte input
     boolean isOK = false;  // Flag set if input correct
@@ -159,6 +138,6 @@ public class PointCPTest
       isOK = false;
     }
     //Return a new PointCP object
-    return (new PointCP2(coordType, a, b));
+    return (new PointCP4(coordType, a, b));
   }
 }

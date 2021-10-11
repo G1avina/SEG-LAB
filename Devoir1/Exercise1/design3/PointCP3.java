@@ -94,7 +94,7 @@ public class PointCP3
     double X = getX();
     double Y = getY();
         
-    return new PointCP4('C',
+    return new PointCP3(
       (Math.cos(radRotation) * X) - (Math.sin(radRotation) * Y),
       (Math.sin(radRotation) * X) + (Math.cos(radRotation) * Y));
   }
@@ -106,7 +106,7 @@ public class PointCP3
    */
   public String toString()
   {
-    return "Stored as Cartesian  (" + getX() + "," + getY() + ")"
-       "with corresponding Polar (" + getRho() + "," + getTheta() + ")" + "\n";
+    return "Stored as Cartesian  (" + getX() + "," + getY() + ")" +
+       " with corresponding Polar (" + getRho() + "," + getTheta() + ")" + "\n";
   }
 }

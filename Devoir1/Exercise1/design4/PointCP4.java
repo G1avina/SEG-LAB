@@ -11,7 +11,7 @@
  * @author 
  * @version October 2021
  */
-public class PointCP
+public class PointCP4
 {
   //Instance variables ************************************************
 
@@ -47,11 +47,11 @@ public class PointCP
   /**
    * Constructs a coordinate object, with a type identifier.
    */
-  public PointCP(char type, double xOrRho, double yOrTheta)
+  public PointCP4(char type, double xOrRho, double yOrTheta)
   {
     if(type != 'C' && type != 'P')
       throw new IllegalArgumentException();
-    if(type == "C") {
+    if(type == 'C') {
       this.x = xOrRho;
       this.y = yOrTheta;
       this.rho = (Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2)));
@@ -73,7 +73,7 @@ public class PointCP
   public double getX()
   {
       return x;
-  
+  }
   public double getY()
   {
       return y;
@@ -135,7 +135,7 @@ public class PointCP
    */
   public String toString()
   {
-    return "Stored as Cartesian  (" + getX() + "," + getY() + ")"
+    return "Stored as Cartesian  (" + getX() + "," + getY() + ")" + "\n"
        + "And Stored as Polar (" + getRho() + "," + getTheta() + ")" + "\n";
   }
 }

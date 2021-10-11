@@ -8,7 +8,7 @@ import java.io.*;
  * @author 
 
  */
-public class PointCPTest
+public class PointCP5Test
 {
   
   public static void main(String[] args)

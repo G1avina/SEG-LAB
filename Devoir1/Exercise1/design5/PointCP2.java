@@ -76,7 +76,7 @@ public class PointCP2 extends PointCP5
    * @param pointB The second point.
    * @return The distance between the two points.
    */
-  public double getDistance(PointCP2 pointB)
+  public double getDistance(PointCP5 pointB)
   {
     // Obtain differences in X and Y, sign is not important as these values
     // will be squared later.
@@ -100,7 +100,7 @@ public class PointCP2 extends PointCP5
     double X = getX();
     double Y = getY();
         
-    return new PointCP2('C',
+    return new PointCP2(
       (Math.cos(radRotation) * X) - (Math.sin(radRotation) * Y),
       (Math.sin(radRotation) * X) + (Math.cos(radRotation) * Y));
   }

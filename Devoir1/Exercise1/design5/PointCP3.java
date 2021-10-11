@@ -79,7 +79,7 @@ public class PointCP3 extends PointCP5
     double X = getX();
     double Y = getY();
         
-    return new PointCP3('C',
+    return new PointCP3(
       (Math.cos(radRotation) * X) - (Math.sin(radRotation) * Y),
       (Math.sin(radRotation) * X) + (Math.cos(radRotation) * Y));
   }
